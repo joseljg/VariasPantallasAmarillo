@@ -28,8 +28,13 @@ public class MainActivity extends AppCompatActivity {
         int habitantes = Integer.valueOf(String.valueOf(edthabitantes.getText()));
 
         Intent intent = new Intent(this,Activity2.class);
-        intent.putExtra(EXTRA_NOMBRE, nombre);
-        intent.putExtra(EXTRA_HABITANTES, habitantes);
+      //  intent.putExtra(EXTRA_NOMBRE, nombre);
+      //  intent.putExtra(EXTRA_HABITANTES, habitantes);
+        Bundle extras = new Bundle();
+        extras.putString(EXTRA_NOMBRE, nombre);
+        extras.putInt(EXTRA_HABITANTES,habitantes);
+        intent.putExtras(extras);
+        //---------------------------------------------------
         startActivity(intent);
 
     }
