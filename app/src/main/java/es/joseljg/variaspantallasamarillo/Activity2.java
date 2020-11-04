@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import es.joseljg.variaspantallasamarillo.clases.Ciudad;
+
 public class Activity2 extends AppCompatActivity {
 
     TextView txt_recibido = null;
@@ -20,9 +22,12 @@ public class Activity2 extends AppCompatActivity {
         Intent intent = getIntent();
       //  String nombre = intent.getStringExtra(MainActivity.EXTRA_NOMBRE);
       //  int habitantes = intent.getIntExtra(MainActivity.EXTRA_HABITANTES, 0);
-      Bundle extras = intent.getExtras();
-      String nombre = extras.getString(MainActivity.EXTRA_NOMBRE);
-      int habitantes = extras.getInt(MainActivity.EXTRA_HABITANTES);
+    //  Bundle extras = intent.getExtras();
+     // String nombre = extras.getString(MainActivity.EXTRA_NOMBRE);
+    // int habitantes = extras.getInt(MainActivity.EXTRA_HABITANTES);
+        Ciudad c = (Ciudad) intent.getSerializableExtra(MainActivity.EXTRA_OBJETO_CIUDAD);
+        String nombre = c.getNombre();
+        int habitantes = c.getHabitantes();
         //----------------------------------------------------------------
         String textorecibido = "nombre: " + nombre + "\n" + "habitantes" + String.valueOf(habitantes);
         txt_recibido.setText(textorecibido);
